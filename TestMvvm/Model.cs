@@ -12,5 +12,7 @@ namespace TestMvvm
         public String Contenuto { get; set; }
 
         public int Counter { get; set; }
+
+
     }
 }
