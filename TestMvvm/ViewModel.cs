@@ -116,6 +116,7 @@ namespace TestMvvm
                 {
                     Modello.Selected.Add(qwerty);
                 }
+                OnPropertyChanged("Modello");
             }
             catch
             {
