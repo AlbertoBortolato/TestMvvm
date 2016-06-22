@@ -13,8 +13,9 @@
     </Window.DataContext>
 
     <Grid Name="grid">
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Width="186" Height="46" Command="{Binding ModificaMessaggio, Mode=OneWay}"/>
-        <Label x:Name="label" Content= "{Binding Path=Messaggio}" HorizontalAlignment="Left" Height="46" Margin="19,61,0,0" VerticalAlignment="Top" Width="186"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="195" Height="46" Command="{Binding ModificaMessaggio, Mode=OneWay}"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="301" Margin="210,10,0,0" VerticalAlignment="Top" Width="298" ItemsSource="{Binding Modello.Words}"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="10,61,0,0" TextWrapping="Wrap" Text="{Binding Messaggio}" VerticalAlignment="Top" Width="195"/>
+        <Label x:Name="label" Content="{Binding Messaggio}" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Width="195"/>
     </Grid>
 </Window>

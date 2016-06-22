@@ -25,7 +25,7 @@ namespace TestMvvm
 
         public ViewModel()
             {
-            Modello = new Model { Contenuto= "asdf", Counter=1 };
+            Modello = new Model { Contenuto= "asdf", Counter=1 , Words=null , Selected=null};
             Messaggio = "Init";
 
             try
@@ -34,7 +34,11 @@ namespace TestMvvm
                 {
                     //inizzializzo l'array di parole
                     string all = sr.ReadToEnd();
-                    Modello.Words = all.Split('\n');
+                    string[] words = all.Split('\n');
+                    foreach ( string word in words)
+                    {
+                        Modello.Words.Add(word);
+                    }
                     // svuoto la stringa visto che non mi serve più
                     all = "";
                 }
@@ -99,8 +103,23 @@ namespace TestMvvm
 
         private void ModificaMessaggioExecute(object obj)
         {
-            Messaggio = "Modificato!"+Modello.Counter;
-            Modello.Counter++;
+
+            var searchQuery = from word in Modello.Words
+                              where word.Contains(Messaggio)
+                              select word;
+            try
+            {
+                foreach (string qwerty in searchQuery)
+                {
+                    Modello.Selected.Add(qwerty);
+                }
+                Messaggio = "Modificato!" + Modello.Counter;
+                Modello.Counter++;
+            }
+            catch
+            {
+
+            }
         }
     }
 }

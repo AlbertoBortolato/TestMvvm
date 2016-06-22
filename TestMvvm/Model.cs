@@ -13,8 +13,8 @@ namespace TestMvvm
 
         public int Counter { get; set; }
 
-        public string[] Words { get; set; }
+        public List<string> Words { get; set; }
 
-        public string[] Selected { get; set; }
+        public List<string> Selected { get; set; }
     }
 }
