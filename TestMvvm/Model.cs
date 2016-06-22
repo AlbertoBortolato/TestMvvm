@@ -14,5 +14,7 @@ namespace TestMvvm
         public int Counter { get; set; }
 
         public string[] Words { get; set; }
+
+        public string[] Selected { get; set; }
     }
 }
