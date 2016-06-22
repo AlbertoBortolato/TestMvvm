@@ -25,7 +25,7 @@ namespace TestMvvm
 
         public ViewModel()
             {
-            Modello = new Model { Contenuto= "asdf", Counter=1 , Words=null , Selected=null};
+            Modello = new Model { Contenuto= "asdf", Counter= 1 , Words= new List<string>(), Selected = new List<string>() };
             Messaggio = "Init";
 
             try
@@ -91,6 +91,8 @@ namespace TestMvvm
         }
         */
 
+        #region Command ModificaMessaggio
+
         public ICommand ModificaMessaggio
         {
             get { return new RelayCommand(ModificaMessaggioExecute, CanModificaMessaggioExecute); }
@@ -109,17 +111,38 @@ namespace TestMvvm
                               select word;
             try
             {
+                Modello.Selected = new List<string>();
                 foreach (string qwerty in searchQuery)
                 {
                     Modello.Selected.Add(qwerty);
                 }
-                Messaggio = "Modificato!" + Modello.Counter;
-                Modello.Counter++;
             }
             catch
             {
 
             }
         }
+
+        #endregion
+
+        #region Command Allwords
+
+        public ICommand AllWords
+        {
+            get { return new RelayCommand(AllWordsExecute, CanAllWordsExecute); }
+        }
+
+        private bool CanAllWordsExecute(object obj)
+        {
+            return true;
+        }
+
+        private void AllWordsExecute(object obj)
+        {
+            Modello.Selected = Modello.Words;
+            OnPropertyChanged("Modello");
+        }
+
+        #endregion
     }
 }
