@@ -13,7 +13,7 @@
     </Window.DataContext>
 
     <Grid Name="grid">
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="195" Height="46" Command="{Binding ModificaMessaggio, Mode=OneWay}"/>
+        <Button x:Name="button" Content="Sottostringa" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="195" Height="46" Command="{Binding ModificaMessaggio, Mode=OneWay}"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="301" Margin="210,10,0,0" VerticalAlignment="Top" Width="298" ItemsSource="{Binding Modello.Selected}"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="10,61,0,0" TextWrapping="Wrap" Text="{Binding Messaggio}" VerticalAlignment="Top" Width="195"/>
         <Label x:Name="label" Content="{Binding Messaggio}" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Width="195"/>
