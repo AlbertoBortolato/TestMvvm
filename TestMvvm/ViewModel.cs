@@ -25,7 +25,7 @@ namespace TestMvvm
 
         public ViewModel()
             {
-            Modello = new Model { Contenuto= "asdf", Counter= 1 , Words= new List<string>(), Selected = new List<string>() };
+            Modello = new Model { Contenuto= "asdf", Counter= 1 , Words= new List<string>() };
             Messaggio = "Init";
 
             try
@@ -72,7 +72,6 @@ namespace TestMvvm
                 OnPropertyChanged("Messaggio");
             }
         }
-
 
         /* vecchio comando
         public ICommandNoView ModificaMessaggio
