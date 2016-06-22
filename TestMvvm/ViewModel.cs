@@ -32,8 +32,10 @@ namespace TestMvvm
             {   // Open the text file using a stream reader.
                 using (StreamReader sr = new StreamReader("dictionary.txt"))
                 {
+                    //inizzializzo l'array di parole
                     string all = sr.ReadToEnd();
                     Modello.Words = all.Split('\n');
+                    // svuoto la stringa visto che non mi serve più
                     all = "";
                 }
             }
@@ -66,6 +68,7 @@ namespace TestMvvm
                 OnPropertyChanged("Messaggio");
             }
         }
+
         /* vecchio comando
         public ICommandNoView ModificaMessaggio
         {
@@ -82,6 +85,7 @@ namespace TestMvvm
             Messaggio = "Modificato!";
         }
         */
+
         public ICommand ModificaMessaggio
         {
             get { return new RelayCommand(ModificaMessaggioExecute, CanModificaMessaggioExecute); }
