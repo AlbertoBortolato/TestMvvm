@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TestMvvm.Core;
 using System.ComponentModel;
 using System.Windows.Input;
+using System.IO;
 
 namespace TestMvvm
 {
@@ -26,7 +27,23 @@ namespace TestMvvm
             {
             Modello = new Model { Contenuto= "asdf", Counter=1 };
             Messaggio = "Init";
+
+            try
+            {   // Open the text file using a stream reader.
+                using (StreamReader sr = new StreamReader("dictionary.txt"))
+                {
+                    string all = sr.ReadToEnd();
+                    Modello.Words = all.Split('\n');
+                    all = "";
+                }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(e.Message);
+            }
+
+        }
         
         public Model Modello
         {
